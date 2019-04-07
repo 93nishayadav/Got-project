@@ -1,0 +1,97 @@
+<div class="container">
+    <h1 class="text-center">Game Of Thrones</h1>
+    <hr />
+  <div class="row" *ngIf="allDataq">
+    <div class="col-md-4 col-sm-6 col-xs-12 " *ngFor="let blog of allDataq">
+      <!--Character Card-->
+      <div *ngIf="blog.url.indexOf('characters')> -1" class="card character-border">
+        <img class="card-img-top" src="assets/images/characters1.jpg" alt="Card image cap" />
+        <div class="card-body">
+          <div class="title-container" >
+            <h5 class="card-title text-center title character-title">Character</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="blog.name">
+              <div class="name"><b>Name:</b></div>
+              <div class="value">{{blog.name}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="blog.aliases.length>0 && blog.aliases[0]!=''">
+              <div class="name"><b>Aliases:</b></div>
+              <div class="value">
+                <span *ngFor="let alias of blog.aliases;let first=first;let last=last">{{alias}}{{last ? '' : ', '}}</span>
+              </div>
+            </li>
+            <li class="list-group-item" *ngIf="blog.gender">
+              <div class="name"><b>Gender:</b></div>
+              <div class="value">{{blog.gender}}</div>
+            </li>
+          </ul>
+          <div class="more">
+            <a [routerLink]="['/characters',blog.url.split('/').pop()]" class="btn btn-primary">More</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <!--End Character card-->
+      <!--Book Card-->
+      <div *ngIf="blog.url.indexOf('books')>-1" class="card book-border">
+        <img class="card-img-top" src="assets/images/books1.jpg" alt="Card image cap">
+        <div class="card-body">
+          <div class="title-container">
+            <h5 class="card-title text-center title book-title">Books</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="blog.name">
+              <div class="name"><b>Name:</b></div>
+              <div class="value">{{blog.name}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="blog.isbn">
+              <div class="name"><b>ISBN No:</b></div>
+              <div class="value">{{blog.isbn}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="blog.authors.length > 0">
+              <div class="name"><b>Authors:</b></div>
+              <div class="value">
+                <span *ngFor="let author of blog.authors;let first=first;let last=last">{{author}}{{last ? '' : ', '}}</span>
+              </div>
+            </li>
+            <li class="list-group-item" *ngIf="blog.released">
+              <div class="name"><b>Released:</b></div>
+              <div class="value">{{blog.released| date}}</div>
+            </li>
+          </ul>
+          <div class="more">
+            <a [routerLink]="['/books',blog.url.split('/').pop()]" class="btn btn-danger">More</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <!--End Book Card-->
+      <!--House card-->
+      <div *ngIf="blog.url.indexOf('houses')>-1" class="card house-border">
+        <img class="card-img-top" src="assets/images/houses.png" alt="Card image cap">
+        <div class="card-body">
+          <div class="title-container">
+            <h5 class="card-title text-center title house-title">Houses</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="name"><b>Name:</b></div>
+              <div class="value">{{blog.name}}</div>
+            </li>
+            <li class="list-group-item">
+              <div class="name"><b>Region:</b></div>
+              <div class="value">{{blog.region}}</div>
+            </li>
+          </ul>
+          <div class="more">
+            <a [routerLink]="['/houses',blog.url.split('/').pop()]" class="btn btn-success">More</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      <!--End House Card-->
+    </div>
+    <!-- <br /> -->
+  </div>
+</div>

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.card-alignment{
+    padding-left:0px; 
+    padding-right:0px;
+}
+.card-title-style{
+     margin-bottom:0px; 
+     padding:10px
+}
+.card-body-style{
+    padding:0px;
+}
+.label-style{
+    float:left;
+}
+.value-style{
+    float:left;
+    margin-left:10px;
+}

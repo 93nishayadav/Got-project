@@ -1,0 +1,75 @@
+<br />
+<br />
+<div class="container">
+    <div class="card card-shadow3 col-md-12 card-alignment"  *ngIf="currentHouse">
+        <div class="card-body card-body-style" >
+            <h5 class="card-title text-center card-title-style"  *ngIf="currentHouse.name">
+                {{currentHouse.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="label-style"><b>URL:</b></div>
+                <div class="value-style">{{currentHouse.url}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.region">
+                <div class="label-style"><b>Region:</b></div>
+                <div class="value-style">{{currentHouse.region}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.coatOfArms">
+                <div class="label-style"><b>Coat Of Arms:</b></div>
+                <div class="value-style">{{currentHouse.coatOfArms}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.words">
+                <div class="label-style"><b>Words:</b></div>
+                <div class="value-style">{{currentHouse.words}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.titles.length >0 && currentHouse.titles[0]!=''">
+                <div class="label-style"><b>Titles:</b></div>
+                <div class="value-style"><span *ngFor="let title of currentHouse.titles;let first=first;let last=last">{{title}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.seats.length >0 && currentHouse.seats[0]!=''">
+                <div class="label-style"><b>Seats:</b></div>
+                <div class="value-style"><span *ngFor="let seat of currentHouse.seats;let first=first;let last=last">{{seat}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.currentLord">
+                <div class="label-style"><b>Current Lord:</b></div>
+                <div class="value-style">{{currentHouse.currentLord}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.heir">
+                <div class="label-style"><b>Heir:</b></div>
+                <div class="value-style">{{currentHouse.heir}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.overlord">
+                <div class="label-style"><b>OverLord:</b></div>
+                <div class="value-style">{{currentHouse.overlord}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.founded ">
+                <div class="label-style"><b>Founded:</b></div>
+                <div class="value-style">{{currentHouse.founded}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.founder">
+                <div class="label-style"><b>Founder:</b></div>
+                <div class="value-style">{{currentHouse.founder}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.diedOut">
+                <div class="label-style"><b>Died Out:</b></div>
+                <div class="value-style">{{currentHouse.diedOut}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.ancestralWeapons.length >0 && currentHouse.ancestralWeapons[0]!=''">
+                <div class="label-style"><b>Ancestral Weapons:</b></div>
+                <div class="value-style"><span *ngFor="let ancestralWeapon of currentHouse.ancestralWeapons;let first=first;let last=last">{{ancestralWeapon}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.cadetBranches.length >0 && currentHouse.cadetBranches[0]!=''">
+                <div class="label-style"><b>Cadet Branches:</b></div>
+                <div class="label-style"><span *ngFor="let cadetBranch of currentHouse.cadetBranches;let first=first;let last=last">{{cadetBranch}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentHouse.swornMembers.length >0 && currentHouse.swornMembers[0]!=''">
+                <div class="label-style"><b>Sworn Members:</b></div>
+                <div class="value-style"><span *ngFor="let swornMember of currentHouse.swornMembers;let first=first;let last=last">{{swornMember.split('https://anapioficeandfire.com/api/').pop()}}{{last ? '' : ', '}}</span></div>
+            </li>
+        </ul>
+        <div class="card-body" style="text-align:center">
+            <a class="btn btn-success" [routerLink]="['/home']">Go To Home</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<br />
+<br />
+<div class="container">
+    <div class="card character-border col-md-12 card-alignment"  *ngIf="currentCharacter">
+        <div class="card-body card-body-style">
+            <h5 class="card-title text-center card-title-style" *ngIf="currentCharacter.aliases.length>0 && currentCharacter.aliases[0]!=''">
+    <span *ngFor="let alias of currentCharacter.aliases;let first=first;let last=last">{{alias}}{{last ? '' : ', '}}</span></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="label-style"><b>URL:</b></div>
+                <div class="value-style">{{currentCharacter.url}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.name">
+                <div class="label-style"><b>Name:</b></div>
+                <div class="value-style">{{currentCharacter.name}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.gender">
+                <div class="label-style"><b>Gender:</b></div>
+                <div class="value-style">{{currentCharacter.gender}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.culture">
+                <div class="label-style"><b>Culture:</b></div>
+                <div class="value-style">{{currentCharacter.culture}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.born">
+                <div class="label-style"><b>Born:</b></div>
+                <div class="value-style">{{currentCharacter.born|date}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.died">
+                <div class="label-style"><b>Died:</b></div>
+                <div class="value-style">{{currentCharacter.died |date}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.titles.length>0 && currentCharacter.titles[0]!=''">
+                <div class="label-style"><b>Titles:</b></div>
+                <div class="value-style"><span
+                        *ngFor="let title of currentCharacter.titles;let first=first;let last=last">{{title}}{{last ? '' : ', '}}<br/></span>
+                </div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.father">
+                <div class="label-style"><b>Father:</b></div>
+                <div class="value-style">{{currentCharacter.father}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.mother">
+                <div class="label-style"><b>Mother:</b></div>
+                <div class="value-style">{{currentCharacter.mother}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.spouse">
+                <div class="label-style"><b>Spouse:</b></div>
+                <div class="value-style">{{currentCharacter.spouse}}</div>
+            </li>
+            <li class="list-group-item"
+                *ngIf="currentCharacter.allegiances.length > 0 && currentCharacter.allegiances[0]!=''">
+                <div class="label-style"><b>Allegiances:</b></div>
+                <div class="value-style"><span
+                        *ngFor="let allegiance of currentCharacter.allegiances;let first=first;let last=last">{{allegiance}}{{last ? '' : ', '}}<br /></span>
+                </div>
+            </li>
+            <li class="list-group-item" *ngIf="currentCharacter.books.length > 0 && currentCharacter.books[0]!=''">
+                <div class="label-style"><b>Books:</b></div>
+                <div class="value-style"><span
+                        *ngFor="let book of currentCharacter.books;let first=first;let last=last">{{book}}{{last ? '' : ', '}}<br/></span>
+                </div>
+            </li>
+            <li class="list-group-item"
+                *ngIf="currentCharacter.povBooks.length > 0 && currentCharacter.povBooks[0]!=''">
+                <div class="label-style"><b>PovBooks:</b></div>
+                <div class="label-style"><span
+                        *ngFor="let povBook of currentCharacter.povBooks;let first=first;let last=last">{{povBooks}}{{last ? '' : ', '}}<br/></span>
+                </div>
+            </li>
+            <li class="list-group-item"
+                *ngIf="currentCharacter.tvSeries.length > 0 && currentCharacter.tvSeries[0]!=''">
+                <div class="label-style"><b>TV Series:</b></div>
+                <div class="value-style"><span
+                        *ngFor="let tvSeries of currentCharacter.tvSeries;let first=first;let last=last">{{tvSeries}}{{last ? '' : ', '}}</span>
+                </div>
+            </li>
+            <li class="list-group-item"
+                *ngIf="currentCharacter.playedBy.length > 0 && currentCharacter.playedBy[0]!=''">
+                <div class="label-style"><b>Played By:</b></div>
+                <div class="label-style"><span *ngFor="let playedBy of currentCharacter.playedBy;let first=first;let last=last">{{playedBy}}{{last ? '' : ', '}}</span>
+                </div>
+            </li>
+        </ul>
+        <div class="card-body" style="text-align:center">
+            <a class="btn btn-primary" [routerLink]="['/home']">Go To Home</a>
+        </div>
+    </div>
+</div>

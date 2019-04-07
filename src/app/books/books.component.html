@@ -1,0 +1,60 @@
+<br />
+<br />
+<div class="container">
+    <div class="card card-shadow3 col-md-12 card-alignment"  *ngIf="currentBook">
+        <div class="card-body card-body-style" style="">
+            <h5 class="card-title text-center card-title-style"  *ngIf="currentBook.name" >
+                {{currentBook.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div  class="label-style"><b>URL:</b></div>
+                <div class="value-style">{{currentBook.url}}</div>
+            </li>
+            <li class="list-group-item"  *ngIf="currentBook.name">
+                <div class="label-style"><b>Name:</b></div>
+                <div class="value-style">{{currentBook.name}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.isbn">
+                <div class="label-style"><b>ISBN No:</b></div>
+                <div class="value-style">{{currentBook.isbn}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.authors.length > 0">
+                <div class="label-style"><b>Authors:</b></div>
+                <div class="value-style"><span *ngFor="let author of currentBook.authors;let first=first;let last=last">{{author}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.numberOfPages">
+                <div class="label-style"><b>Number Of Pages :</b></div>
+                <div class="value-style">{{currentBook.numberOfPages}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.publisher">
+                <div class="label-style"><b>Publisher:</b></div>
+                <div class="value-style">{{currentBook.publisher}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.country">
+                <div class="label-style"><b>Country:</b></div>
+                <div class="value-style">{{currentBook.country}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.mediaType ">
+                <div class="label-style"><b>Media Type:</b></div>
+                <div class="value-style">{{currentBook.mediaType}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.released ">
+                <div class="label-style"><b>Released:</b></div>
+                <div class="value-style">{{currentBook.released |date}}</div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.characters.length> 0">
+                <div class="label-style"><b>Characters:</b></div>
+                <div class="label-style"> <span *ngFor="let character of currentBook.characters;let first=first;let last=last">{{character}}{{last ? '' : ', '}}</span></div>
+            </li>
+            <li class="list-group-item" *ngIf="currentBook.povCharacters.length > 0">
+                <div class="label-style"><b>povCharacters:</b></div>
+                <div class="label-style"><span *ngFor="let povCharacter of currentBook.povCharacters;let first=first;let last=last">{{povCharacter}}{{last ? '' : ', '}}</span></div>
+            </li>
+           
+        </ul>
+        <div class="card-body text-center" >
+            <a class="btn btn-danger" [routerLink]="['/home']">Go To Home</a>
+        </div>
+    </div>
+</div>
